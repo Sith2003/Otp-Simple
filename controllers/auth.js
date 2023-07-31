@@ -193,3 +193,9 @@ exports.sendOTP = async (req, res) => {
       return res.status(500).json({ success: false, error: error.message });
     }
 };
+
+exports.deleteUser = async (req, res) => {
+    const deleteUser = await User.findById(req.body.id);
+
+    return res.status(200).json(deleteUser);
+};
